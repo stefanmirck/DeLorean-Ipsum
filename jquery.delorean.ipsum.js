@@ -754,7 +754,7 @@
         	{ "character": "Doc", "line": "Roads? Where we're going we don't need roads."}
 	    ];
 
-	function mrFusion(){
+	function mrFusion() {
 		var sentencesPara = opts.perPara
 		  , length = delorean.length
 		  , mcfly = []
@@ -787,21 +787,23 @@
 		
 		for (var i = 0; i < howmany; i++) {
 			sentenceCount++;
-			rnd_number = Math.floor(Math.random()*diff + min_num); 
+			rnd_number = Math.floor((Math.random() * diff) + min_num); 
 			if ((opts.tag !== '' && opts.type !== 'paragraphs') || (opts.tag !== '' && opts.type === 'paragraphs' && sentenceCount === 1) ){
-					einstein+="<" + opts.tag +">";
+					einstein += "<" + opts.tag + ">";
 			}
 			einstein += mcfly[rnd_number];
 			if (opts.type === 'paragraphs') {
 				if (sentenceCount === sentencesPara) {
-				if(opts.tag !== ''){
-					einstein += "</" + opts.tag + ">";
+    				if (opts.tag !== '') {
+    					einstein += "</" + opts.tag + ">";
+    				}
+    				einstein += "\n\n";
+    				sentenceCount = 0;
+				} else {
+				    einstein += " ";
 				}
-				einstein += "\n\n";
-				sentenceCount = 0;
-				} else einstein += " ";
 			} else {
-				if (opts.tag !== ''){
+				if (opts.tag !== '') {
 					einstein += "</" + opts.tag + ">";
 				}
 				einstein += "\n\n";
