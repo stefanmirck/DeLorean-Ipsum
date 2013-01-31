@@ -809,50 +809,46 @@
 		}
 		
 		switch (opts.type) {
-			case "words":{
-		      	var numOfWords = opts.amount;
-				numOfWords = parseInt( numOfWords );
+			case 'words':
+		      	var numOfWords = parseInt(opts.amount, 10);
 				var list = [];
-				var wordList = [];
-				wordList = einstein.split( ' ' );
+				var wordList = einstein.split(' ');
 				var iParagraphCount = 0;
 				var iWordCount = 0;
-				while( list.length < numOfWords ) {
-					if( iWordCount > wordList.length ) {
+
+				while (list.length < numOfWords) {
+					if (iWordCount > wordList.length) {
 						iWordCount = 0;
 		        		iParagraphCount++;
-		      		  	if( iParagraphCount + 1 > delorean.length ) {
+
+		      		  	if (iParagraphCount + 1 > delorean.length) {
 							iParagraphCount = 0;
 						}
-		        		wordList = delorean[ iParagraphCount ].split( ' ' );
-		        		wordList[0] = "\n\n" + wordList[ 0 ];
+
+		        		wordList = delorean[iParagraphCount].split(' ');
+		        		wordList[0] = "\n\n" + wordList[0];
 					}
-		       		list.push( wordList[ iWordCount ] );
+		       		list.push(wordList[iWordCount]);
 		       		iWordCount++;
 				}
 				einstein = list.join(' ');
-			break;
-			}
+			    break;
+
 			case 'characters':
-			{
 				var outputString = '';
-			    var numOfChars = opts.amount;
-			    numOfChars = parseInt(numOfChars, 10);
-			    var tempString = mcfly.join( "\n\n" );
-				while(outputString.length < numOfChars ){
-						outputString += tempString;
+			    var numOfChars = parseInt(opts.amount, 10);
+			    var tempString = mcfly.join("\n\n");
+				while (outputString.length < numOfChars) {
+					outputString += tempString;
 				}
-			    einstein = outputString.substring(0, numOfChars );
-			break;
-			}
+			    einstein = outputString.substring(0, numOfChars);
+			    break;
 		}
 		return einstein;
 	}
 
 	return this.each(function() {
-		  $this = $(this);
-		  var markup = mrFusion();
-		  $this.html(markup);
+		  return $(this).html(mrFusion());
 		});
   };
 
