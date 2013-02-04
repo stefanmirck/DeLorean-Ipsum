@@ -774,7 +774,7 @@
             max_num = mcfly.length;     
 
             if (max_num === 0 && opts.character.toLowerCase() !== '') {
-                return opts.character + " has no lines!";
+                return opts.character + ' has no lines!';
             }
 
             diff = max_num - min_num ;
@@ -789,25 +789,25 @@
             for (var i = 0; i < howmany; i++) {
                 sentenceCount++;
                 rnd_number = Math.floor((Math.random() * diff) + min_num); 
-                if ((opts.tag !== '' && opts.type !== 'paragraphs') || (opts.tag !== '' && opts.type === 'paragraphs' && sentenceCount === 1) ){
-                        einstein += "<" + opts.tag + ">";
+                if ((opts.tag !== '' && opts.type !== 'paragraphs') || (opts.tag !== '' && opts.type === 'paragraphs' && sentenceCount === 1) ) {
+                        einstein += '<' + opts.tag + '>';
                 }
                 einstein += mcfly[rnd_number];
                 if (opts.type === 'paragraphs') {
                     if (sentenceCount === sentencesPara) {
                         if (opts.tag !== '') {
-                            einstein += "</" + opts.tag + ">";
+                            einstein += '</' + opts.tag + '>';
                         }
-                        einstein += "\n\n";
+                        einstein += '\n\n';
                         sentenceCount = 0;
                     } else {
                         einstein += " ";
                     }
                 } else {
                     if (opts.tag !== '') {
-                        einstein += "</" + opts.tag + ">";
+                        einstein += '</' + opts.tag + '>';
                     }
-                    einstein += "\n\n";
+                    einstein += '\n\n';
                 }
             }
 
@@ -829,7 +829,7 @@
                             }
 
                             wordList = delorean[iParagraphCount].split(' ');
-                            wordList[0] = "\n\n" + wordList[0];
+                            wordList[0] = '\n\n' + wordList[0];
                         }
 
                         list.push(wordList[iWordCount]);
@@ -842,7 +842,7 @@
                 case 'characters':
                     var outputString = ''
                       , numOfChars = parseInt(opts.amount, 10)
-                      , tempString = mcfly.join("\n\n");
+                      , tempString = mcfly.join('\n\n');
 
                     while (outputString.length < numOfChars) {
                         outputString += tempString;
